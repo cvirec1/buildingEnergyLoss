@@ -8,5 +8,8 @@ namespace BuildingEnergyLoss
 {
     enum BuildingType
     {
+        House,
+        Flat,
+        Bungalov
     }
 }

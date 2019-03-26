@@ -57,14 +57,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Material\Beton.cs" />
     <Compile Include="Material\IMaterial.cs" />
     <Compile Include="Construction\IPlocha.cs" />
-    <Compile Include="Material\Omietka.cs" />
-    <Compile Include="Material\Polystyren.cs" />
-    <Compile Include="Material\Sadrokarton.cs" />
-    <Compile Include="Material\Vata.cs" />
-    <Compile Include="Material\Ytong.cs" />
+    <Compile Include="Material\Material.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Construction\Roof.cs" />

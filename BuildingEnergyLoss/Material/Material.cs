@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace BuildingEnergyLoss.Material
 {
-    class Beton : IMaterial
+    class Material:IMaterial
     {
         public double Lambda { get; set; }
         public double Thickness { get; set; }
+        public double TermoResistance { get; set; }
+        public string Name { get; set; }
 
         public double GetR(double x, double y)
         {
-            double r = x / y;
-            return r;
+            double TermoResistance = x / y;
+            return TermoResistance;
         }
     }
 }

@@ -11,5 +11,6 @@ namespace BuildingEnergyLoss
         double Lambda{ get; set; }
         double Thickness { get; set;}        
         double GetR(double x, double y);
+        double TermoResistance { get; set; }
     }
 }
