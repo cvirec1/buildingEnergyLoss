@@ -12,12 +12,12 @@ namespace BuildingEnergyLoss
         public double ConstructionU { get; set; }
         public double Area { get; set; }
         public double Width { get; set; }
-        public double Height { get; set; }
+        public double Lenght { get; set; }
 
         public List<IMaterial> materials = new List<IMaterial>();
         public virtual double GetArea()
         {
-            return Area = Width * Height;
+            return Area = Width * Lenght;
         }        
         public double GetConstructionU()
         {
