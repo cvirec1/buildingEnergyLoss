@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BuildingEnergyLoss
 {
-    enum BuildingType
+    public enum BuildingType
     {
-        House,
-        Flat,
-        Bungalov
+        Protected = 0,
+        Unprotected = 3,
+        Negative = 6
     }
 }

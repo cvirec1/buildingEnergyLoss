@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BuildingEnergyLoss
 {
-    class Window:Construction
+    public enum CountryType
     {
+        normal = 0,
+        wind = 3
     }
 }

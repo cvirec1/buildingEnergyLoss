@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BuildingEnergyLoss.Materials;
 
 namespace BuildingEnergyLoss
 {
@@ -14,15 +15,30 @@ namespace BuildingEnergyLoss
         public double Width { get; set; }
         public double Lenght { get; set; }
 
-        public List<IMaterial> materials = new List<IMaterial>();
+        public List<Material> materials = new List<Material>();
+
+        public Construction(string name, double width, double lenght, List<Material> materials)
+        {
+            Name = name;
+            Width = width;
+            Lenght = lenght;
+            this.materials = materials;
+            Area = GetArea();
+        }
+
         public virtual double GetArea()
         {
-            return Area = Width * Lenght;
-        }        
+            return Width * Lenght;
+        }
+
+        //public double GetConstructionU()
+        //{
+        //    throw new NotImplementedException();
+        //}
         public double GetConstructionU()
         {
-            double sumaR=0;
-            foreach (IMaterial item in materials)
+            double sumaR = 0;
+            foreach (Material item in materials)
             {
                 sumaR += item.GetR(item.Thickness, item.Lambda);
             }
