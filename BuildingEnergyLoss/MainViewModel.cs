@@ -55,7 +55,7 @@ namespace BuildingEnergyLoss
             Building newBuilding = new Building(HouseID[0], new Author(HouseID[1], HouseID[2]), Country, BuildType, MinTemperature, InsideTemperature, constructions);
         }
 
-        public double CreateWall()
+        public double GetWallValue()
         {
             List<Material> materialWall = new List<Material>();
             for (int i = 0; i < WallId.Count; i++)
@@ -66,43 +66,59 @@ namespace BuildingEnergyLoss
             double value = newWall.GetConstructionU() * newWall.GetArea() * (InsideTemperature - MinTemperature);
             return value;
         }
-        public double CreateFloor()
+        public double GetFloorValue()
         {
             List<Material> materialFloor = new List<Material>();
-            materialFloor = null;
-            foreach (Material m in GetMaterial())
+            for (int i = 0; i < FloorId.Count; i++)
             {
-                for (int i = 0; i < WallId.Count(); i++)
-                {
-                    if (m.ID == WallId[i])
-                    {
-                        m.Thickness = WallThickness[i];
-                        materialFloor.Add(m);
-                    }
-                }
-
+                materialFloor.Add(_materials.CreateMaterial(WallId[i], WallThickness[i]));
             }
-            Floor newFloor = new Floor("Floor", FloorWidth, WallLenght, materialFloor);
-            return newFloor.GetConstructionU();
+            Floor newWall = new Floor("Floor", WallWidth, WallLenght, materialFloor);
+            double value = newWall.GetConstructionU() * newWall.GetArea() * (InsideTemperature - MinTemperature);
+            return value;
+            //List<Material> materialFloor = new List<Material>();
+            //materialFloor = null;
+            //foreach (Material m in GetMaterial())
+            //{
+            //    for (int i = 0; i < WallId.Count(); i++)
+            //    {
+            //        if (m.ID == WallId[i])
+            //        {
+            //            m.Thickness = WallThickness[i];
+            //            materialFloor.Add(m);
+            //        }
+            //    }
+
+            //}
+            //Floor newFloor = new Floor("Floor", FloorWidth, WallLenght, materialFloor);
+            //return newFloor.GetConstructionU();
         }
-        public double CreateRoof()
+        public double GetRoofValue()
         {
             List<Material> materialRoof = new List<Material>();
-            materialRoof = null;
-            foreach (Material m in GetMaterial())
+            for (int i = 0; i < FloorId.Count; i++)
             {
-                for (int i = 0; i < WallId.Count(); i++)
-                {
-                    if (m.ID == WallId[i])
-                    {
-                        m.Thickness = WallThickness[i];
-                        materialRoof.Add(m);
-                    }
-                }
-
+                materialRoof.Add(_materials.CreateMaterial(WallId[i], WallThickness[i]));
             }
-            Roof newRoof = new Roof("Floor", FloorWidth, WallLenght, materialRoof);
-            return newRoof.GetConstructionU();
+            Roof newWall = new Roof("Roof", WallWidth, WallLenght, materialRoof);
+            double value = newWall.GetConstructionU() * newWall.GetArea() * (InsideTemperature - MinTemperature);
+            return value;
+            //List<Material> materialRoof = new List<Material>();
+            //materialRoof = null;
+            //foreach (Material m in GetMaterial())
+            //{
+            //    for (int i = 0; i < WallId.Count(); i++)
+            //    {
+            //        if (m.ID == WallId[i])
+            //        {
+            //            m.Thickness = WallThickness[i];
+            //            materialRoof.Add(m);
+            //        }
+            //    }
+
+            //}
+            //Roof newRoof = new Roof("Floor", FloorWidth, WallLenght, materialRoof);
+            //return newRoof.GetConstructionU();
         }
     }
 }
