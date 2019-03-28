@@ -48,11 +48,12 @@ namespace BuildingEnergyLoss
             return _materials.GetMaterials();
         }
 
-        public void CreateBuilding()
+        public Building CreateBuilding()
         {
             List<Construction> constructions = new List<Construction>();
 
-            Building newBuilding = new Building(HouseID[0], new Author(HouseID[1], HouseID[2]), Country, BuildType, MinTemperature, InsideTemperature, constructions);
+            Building newBuilding = new Building(HouseID[0], new Author(HouseID[1], HouseID[2]), Country, BuildType, MinTemperature, InsideTemperature, constructions,GetWallValue(),GetFloorValue(),GetRoofValue());
+            return newBuilding;
         }
 
         public double GetWallValue()
